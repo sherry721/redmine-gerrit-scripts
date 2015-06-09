@@ -3,6 +3,7 @@
 #
 #   Copyright (c) 2008-2011 Tobias Hieta <tobias@hieta.se>
 #   Copyright (c) 2014      Rossen Apostolov <rossen@mochiron.org>
+#   Copyright (c) 2015      Thomas Löffler <loeffler@spooner-web.de>
 #
 
 # This is a simple Gerrit hook for updating Redmine with information about what changes
@@ -15,7 +16,7 @@
 # data. It can also change the status of the issue to indicate that this issue is now
 # under gerrit review.
 #
-# Script is tested with Redmine 2.4.1 and Gerrit 2.6.1
+# Script is tested with Redmine 2.6.1 and Gerrit 2.10.4
 
 # set your API key here. You can find it under "My account" in Redmine, i.e. http://redmine.mydomain.com/my/account
 REDMINE_API_KEY = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
@@ -58,6 +59,8 @@ if __name__ == '__main__':
     parser.add_option('-a', '--patchset', dest='patchset')
     parser.add_option('-d', '--is-draft', dest='isdraft')
     parser.add_option('-t', '--topic', dest='topic')
+    parser.add_option('--kind', dest='kind')
+    parser.add_option('--change-owner', dest='change-owner')
 
     (options, x) = parser.parse_args(sys.argv)
 
